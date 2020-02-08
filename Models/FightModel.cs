@@ -42,10 +42,10 @@ namespace e7_tower_scouting.Models
 
                 string markdown = "";
 
-                markdown += $"| {"Name".PadRight(longestName, ' ')} | Speed | {"HP".PadRight(5)} | Artifact\n";
+                markdown += $"#   {"Name".PadRight(longestName, ' ')}   # Speed # {"HP".PadRight(5)} # Artifact\n";
                 foreach (Combatant c in combatants)
                 {
-                    markdown += $"| {c.Name.PadRight(longestName, ' ')} | {Math.Ceiling((YourSpeed) * (c.Readiness / 100)).ToString().PadLeft(5, ' ')} | {c.HP.ToString().PadLeft(5)} | {c.Artifact}\n";
+                    markdown += $"| < {c.Name.PadRight(longestName, ' ')} > | {Math.Ceiling((YourSpeed) * (c.Readiness / 100)).ToString().PadLeft(5, ' ')} | {c.HP.ToString().PadLeft(5)} | {c.Artifact}\n";
                 }
                 markdown += $"\n{Notes}\n";
 

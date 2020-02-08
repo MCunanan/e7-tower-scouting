@@ -15,3 +15,6 @@ bld/
 
 # dotfiles
 .DS_Store
+
+# Firebase
+.firebase/
