@@ -1,0 +1,5 @@
+﻿<linker>
+  <assembly fullname="e7-tower-scouting">
+    <type fullname="*" required="true" />
+  </assembly>
+</linker>

@@ -1,0 +1,175 @@
+﻿@page "/"
+@using e7_tower_scouting.Models
+
+<div class="row mb-1">
+    <div class="col-1">
+        <label>Enemy:</label>
+    </div>
+    <div class="col">
+        <input type="text" @bind="fight.Name" />
+    </div>
+</div>
+<div id="round-1">
+    <h3>Round 1 @fight.Name</h3>
+    <div class="row mb-1">
+        <div class="col-1">
+            <label>Your speed:</label>
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.One.YourSpeed" />
+        </div>
+    </div>
+    <div class="row mb-1">
+        <div class="col">
+            <label>Name</label>
+        </div>
+        <div class="col">
+            <label>Readiness</label>
+        </div>
+        <div class="col">
+            <label>HP</label>
+        </div>
+        <div class="col">
+            <label>Artifact</label>
+        </div>
+    </div>
+    <div class="row mb-1">
+        <div class="col">
+            <input type="text" @bind="fight.One.Enemy1.Name" />
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.One.Enemy1.Readiness" />
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.One.Enemy1.HP" />
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.One.Enemy1.Artifact" />
+        </div>
+    </div>
+    <div class="row mb-1">
+        <div class="col">
+            <input type="text" @bind="fight.One.Enemy2.Name" />
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.One.Enemy2.Readiness" />
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.One.Enemy2.HP" />
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.One.Enemy2.Artifact" />
+        </div>
+    </div>
+    <div class="row mb-1">
+        <div class="col">
+            <input type="text" @bind="fight.One.Enemy3.Name" />
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.One.Enemy3.Readiness" />
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.One.Enemy3.HP" />
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.One.Enemy3.Artifact" />
+        </div>
+    </div>
+    <div class="row mb-1">
+        <input class="w-100" placeholder="Notes" @bind="fight.One.Notes" />
+    </div>
+    <div class="row mb-1">
+        <div class="card w-100">
+            <div class="card-body">
+<code style="white-space:pre;" class="w-100">```md
+@fight.Name Round 1
+@fight.One.DiscordMarkdown
+```</code>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="round-2">
+    <h3>Round 2 @fight.Name</h3>
+    <div class="row mb-1">
+        <div class="col-1">
+            <label>Your speed:</label>
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.Two.YourSpeed" />
+        </div>
+    </div>
+    <div class="row mb-1">
+        <div class="col">
+            <label>Name</label>
+        </div>
+        <div class="col">
+            <label>Readiness</label>
+        </div>
+        <div class="col">
+            <label>HP</label>
+        </div>
+        <div class="col">
+            <label>Artifact</label>
+        </div>
+    </div>
+    <div class="row mb-1">
+        <div class="col">
+            <input type="text" @bind="fight.Two.Enemy1.Name" />
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.Two.Enemy1.Readiness" />
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.Two.Enemy1.HP" />
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.Two.Enemy1.Artifact" />
+        </div>
+    </div>
+    <div class="row mb-1">
+        <div class="col">
+            <input type="text" @bind="fight.Two.Enemy2.Name" />
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.Two.Enemy2.Readiness" />
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.Two.Enemy2.HP" />
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.Two.Enemy2.Artifact" />
+        </div>
+    </div>
+    <div class="row mb-1">
+        <div class="col">
+            <input type="text" @bind="fight.Two.Enemy3.Name" />
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.Two.Enemy3.Readiness" />
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.Two.Enemy3.HP" />
+        </div>
+        <div class="col">
+            <input type="text" @bind="fight.Two.Enemy3.Artifact" />
+        </div>
+    </div>
+    <div class="row mb-1">
+        <input class="w-100" placeholder="Notes" @bind="fight.Two.Notes" />
+    </div>
+    <div class="row mb-1">
+        <div class="card w-100">
+            <div class="card-body">
+<code style="white-space:pre;" class="w-100">```md
+@fight.Name Round 2
+@fight.Two.DiscordMarkdown
+```</code>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private Fight fight = new Fight();
+}
