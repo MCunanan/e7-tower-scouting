@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "bin/Release/netstandard2.1/publish/e7-tower-scouting/dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
