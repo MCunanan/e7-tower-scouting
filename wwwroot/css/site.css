@@ -136,6 +136,11 @@ app {
     top: 0.5rem;
 }
 
+table .form-control-plaintext {
+    border-bottom: 1px solid #eee;
+    color: #eee;
+}
+
 @media (max-width: 767.98px) {
     .main .top-row:not(.auth) {
         display: none;

@@ -61,7 +61,7 @@ namespace e7_tower_scouting.Models
             Name = "";
             Readiness = 0;
             HP = 0;
-            Artifact = "N/A";
+            Artifact = "";
         }
 
         public string Name { get; set; }
