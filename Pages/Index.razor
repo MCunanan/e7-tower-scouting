@@ -7,6 +7,9 @@
         <input class="form-control" type="text" @bind="fight.Name" />
     </div>
 </div>
+<div class="row mb-1">
+    <input type="button" class="btn btn-primary" @onclick="Reset" value="Reset" />
+</div>
 <div class="row">
     <div class="col jumbotron mr-2">
         <div id="round-1">
@@ -180,4 +183,9 @@
 
 @code {
     private Fight fight = new Fight();
+
+    private void Reset()
+    {
+        fight = new Fight();
+    }
 }
