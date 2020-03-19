@@ -38,14 +38,17 @@ namespace e7_tower_scouting.Models
                 List<string> names = new List<string>() { Enemy1.Name, Enemy2.Name, Enemy3.Name };
                 int longestName = names.Aggregate("Name", (max, cur) => max.Length > cur.Length ? max : cur).Length;
 
+                List<string> hps = new List<string>() { Enemy1.HP, Enemy2.HP, Enemy3.Name };
+                int longestHp = hps.Aggregate("", (max, cur) => max.Length > cur.Length ? max : cur).Length;
+
                 Combatant[] combatants = new List<Combatant>() { Enemy1, Enemy2, Enemy3 }.OrderByDescending(x => x.Readiness).ToArray();
 
                 string markdown = "";
 
-                markdown += $"#   {"Name".PadRight(longestName, ' ')}   # Speed # {"HP".PadRight(5)} # Artifact\n";
+                markdown += $"#   {"Name".PadRight(longestName, ' ')}   # Speed # {"HP".PadRight(longestHp)} # Artifact\n";
                 foreach (Combatant c in combatants)
                 {
-                    markdown += $"| < {c.Name.PadRight(longestName, ' ')} > | {Math.Ceiling((YourSpeed) * (c.Readiness / 100)).ToString().PadLeft(5, ' ')} | {c.HP.ToString().PadLeft(5)} | {c.Artifact}\n";
+                    markdown += $"| < {c.Name.PadRight(longestName, ' ')} > | {Math.Ceiling((YourSpeed) * (c.Readiness / 100)).ToString().PadLeft(5, ' ')} | {c.HP.PadLeft(longestHp, ' ')} | {c.Artifact}\n";
                 }
                 markdown += $"\n{Notes}\n";
 
@@ -60,13 +63,13 @@ namespace e7_tower_scouting.Models
         {
             Name = "";
             Readiness = 0;
-            HP = 0;
+            HP = "";
             Artifact = "";
         }
 
         public string Name { get; set; }
         public double Readiness { get; set; }
-        public int HP { get; set; }
+        public string HP { get; set; }
         public string Artifact { get; set; }
     }
 }
