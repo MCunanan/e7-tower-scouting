@@ -38,8 +38,8 @@ namespace e7_tower_scouting.Models
                 List<string> names = new List<string>() { Enemy1.Name, Enemy2.Name, Enemy3.Name };
                 int longestName = names.Aggregate("Name", (max, cur) => max.Length > cur.Length ? max : cur).Length;
 
-                List<string> hps = new List<string>() { Enemy1.HP, Enemy2.HP, Enemy3.Name };
-                int longestHp = hps.Aggregate("", (max, cur) => max.Length > cur.Length ? max : cur).Length;
+                List<string> hps = new List<string>() { Enemy1.HP, Enemy2.HP, Enemy3.HP };
+                int longestHp = hps.Aggregate("HP", (max, cur) => max.Length > cur.Length ? max : cur).Length;
 
                 Combatant[] combatants = new List<Combatant>() { Enemy1, Enemy2, Enemy3 }.OrderByDescending(x => x.Readiness).ToArray();
 
