@@ -82,10 +82,10 @@
             <div class="row mb-1">
                 <div class="card w-100">
                     <div class="card-header">
-                        Copy all text below into Discord.
+                        <button class="btn btn-primary" onclick="copy('round1code');">Copy all text below.</button>
                     </div>
                     <div class="card-body">
-<code style="white-space:pre;" class="w-100">```md
+<code id="round1code" style="white-space:pre;" class="w-100">```md
 [@fight.Name](Round 1)
 @fight.One.DiscordMarkdown
 ```</code>
@@ -165,10 +165,10 @@
             <div class="row mb-1">
                 <div class="card w-100">
                     <div class="card-header">
-                        Copy all text below into Discord.
+                        <button class="btn btn-primary" onclick="copy('round2code');">Copy all text below.</button>
                     </div>
                     <div class="card-body">
-<code style="white-space:pre;" class="w-100">```md
+<code id="round2code" style="white-space:pre;" class="w-100">```md
 [@fight.Name](Round 2)
 @fight.Two.DiscordMarkdown
 ```</code>
@@ -178,8 +178,6 @@
         </div>
     </div>
 </div>
-
-
 
 @code {
     private Fight fight = new Fight();

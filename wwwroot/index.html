@@ -21,7 +21,18 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
+    <textarea id="copyfield" style="position: absolute; left:-100%;"></textarea>
     <script src="_framework/blazor.webassembly.js"></script>
+
+    <script type="text/javascript">
+        function copy(id) {
+            var copyText = document.getElementById(id).textContent;
+            var textArea = document.getElementById("copyfield");
+            textArea.textContent = copyText;
+            textArea.select();
+            document.execCommand("copy");
+        }
+    </script>
 </body>
 
 </html>
