@@ -45,10 +45,13 @@ namespace e7_tower_scouting.Models
 
                 string markdown = "";
 
-                markdown += $"#   {"Name".PadRight(longestName, ' ')}   # Speed # {"HP".PadRight(longestHp)} # Artifact\n";
+                markdown += $"#   {"Name".PadRight(longestName, ' ')}   # {"Speed".PadRight(9)} # {"HP".PadRight(longestHp)} # Artifact\n";
                 foreach (Combatant c in combatants)
                 {
-                    markdown += $"| < {c.Name.PadRight(longestName, ' ')} > | {Math.Ceiling((YourSpeed) * (c.Readiness / 100)).ToString().PadLeft(5, ' ')} | {c.HP.PadLeft(longestHp, ' ')} | {c.Artifact}\n";
+                    double percentage = c.Readiness / 100;
+                    double speedLow = Math.Ceiling((YourSpeed) * (percentage));
+                    double speedHigh = Math.Ceiling((YourSpeed * 1.05) * percentage) + Math.Ceiling((YourSpeed * 1.05) * percentage *  0.05);
+                    markdown += $"| < {c.Name.PadRight(longestName, ' ')} > | {string.Format("{0} - {1}", speedLow, speedHigh).PadLeft(9, ' ')} | {c.HP.PadLeft(longestHp, ' ')} | {c.Artifact}\n";
                 }
                 markdown += $"\n{Notes}\n";
 
