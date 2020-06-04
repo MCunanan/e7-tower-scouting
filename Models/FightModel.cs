@@ -45,13 +45,23 @@ namespace e7_tower_scouting.Models
 
                 string markdown = "";
 
-                markdown += $"#   {"Name".PadRight(longestName, ' ')}   # {"Speed".PadRight(9)} # {"HP".PadRight(longestHp)} # Artifact\n";
+                markdown += $"#   {"Name".PadRight(longestName, ' ')}   # Speed Est. # {"HP".PadRight(longestHp)} # Artifact\n";
                 foreach (Combatant c in combatants)
                 {
                     double percentage = c.Readiness / 100;
-                    double speedLow = Math.Ceiling((YourSpeed) * (percentage));
-                    double speedHigh = Math.Ceiling((YourSpeed * 1.05) * percentage) + Math.Ceiling((YourSpeed * 1.05) * percentage *  0.05);
-                    markdown += $"| < {c.Name.PadRight(longestName, ' ')} > | {string.Format("{0} - {1}", speedLow, speedHigh).PadLeft(9, ' ')} | {c.HP.PadLeft(longestHp, ' ')} | {c.Artifact}\n";
+
+                    // estimating the highs and lows, first number is my character 
+                    // double speed00 = Math.Ceiling((YourSpeed) * (percentage));
+                    // double speed05 = Math.Ceiling((YourSpeed) * (percentage)) - Math.Ceiling((YourSpeed * percentage) * 0.05);
+                    // double speed50 = Math.Ceiling((YourSpeed * 1.05) * percentage);
+                    // double speed55 = Math.Ceiling((YourSpeed * 1.05) * percentage) + Math.Ceiling((YourSpeed * 1.05) * percentage *  0.05);
+                    // double averageSpeed = Math.Ceiling((speed00 + speed05 + speed50 + speed55) / 4);
+
+                    double formulaLow = Math.Ceiling(YourSpeed * percentage / 1.05);
+                    double formulaHigh = Math.Ceiling(YourSpeed * 1.05 * percentage);
+                    string speedRange = $"{formulaLow} - {formulaHigh}";
+
+                    markdown += $"| < {c.Name.PadRight(longestName, ' ')} > | {speedRange.PadLeft(10, ' ')} | {c.HP.PadLeft(longestHp, ' ')} | {c.Artifact}\n";
                 }
                 markdown += $"\n{Notes}\n";
 
